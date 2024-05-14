@@ -23,3 +23,7 @@
     font-size: 18px;
     border: none;
 }
+
+.option.selected {
+    background-color: lightblue; /* Change la couleur de fond de l'option sélectionnée */
+}
