@@ -184,3 +184,60 @@ const data = [
         "difficulty": "hard"
     }
 ];
+
+function loadQuestions() {
+    // Récupérer la catégorie de questions depuis les paramètres de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    // Filtrer les questions en fonction de la catégorie et les rendre
+    const filteredQuestions = data.filter(question => question.category === category);
+    renderQuestions(filteredQuestions);
+}
+
+function navigateToPlayground(category) {
+    // Rediriger l'utilisateur vers la page de jeu en spécifiant la catégorie
+    window.location.href = 'playground.html?category=' + category;
+}
+
+function renderQuestions(questions) {
+    // Rendre les questions dans le conteneur approprié sur la page de jeu
+    const questionsContainer = document.getElementById('questionsContainer');
+    questionsContainer.innerHTML = '';
+
+    questions.forEach((question, index) => {
+        // Créer un élément pour chaque question avec ses options
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('questionContainer');
+
+        // Ajouter le texte de la question
+        const questionText = document.createElement('p');
+        questionText.textContent = question.question;
+        questionElement.appendChild(questionText);
+
+        // Ajouter les boutons d'options avec gestionnaire de clic
+        for (let i = 1; i <= 4; i++) {
+            const optionButton = document.createElement('button');
+            optionButton.classList.add('option');
+            optionButton.textContent = question['option' + i];
+            optionButton.onclick = () => handleOptionSelect(optionButton);
+            questionElement.appendChild(optionButton);
+        }
+
+        // Ajouter la question rendue au conteneur principal des questions
+        questionsContainer.appendChild(questionElement);
+    });
+}
+
+
+function handleOptionSelect(optionButton) {
+    // Gérer la sélection d'une option en mettant à jour les styles
+    const questionContainer = optionButton.closest('.questionContainer');
+
+    // Supprimer la classe "selected" de tous les boutons d'options dans ce conteneur de question
+    const optionButtons = questionContainer.querySelectorAll('.option');
+    optionButtons.forEach(button => button.classList.remove('selected'));
+
+    // Ajouter la classe "selected" au bouton d'option sélectionné
+    optionButton.classList.add('selected');
+}
