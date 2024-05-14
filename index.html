@@ -1,36 +1,25 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivial Quiz</title>
     <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-<div id="container" class="container">
-    <div id="categoryContainer" class="category-container">
-        <div class="category" onclick="navigateToPlayground('science')">
-            <span class="category-title">Science</span>
-        </div>
-        <div class="category" onclick="navigateToPlayground('technology')">
-            <span class="category-title">Technologie</span>
-        </div>
-        <div class="category" onclick="navigateToPlayground('sports')">
-            <span class="category-title">Sports</span>
+<div id="app">
+    <h1>Bienvenue sur Quiz'App</h1>
+    <div id="quizAppContainer">
+        <div class="categoryContainer">
+            <button class="category" onclick="navigateToPlayground('science')">Science</button>
+            <button class="category" onclick="navigateToPlayground('technology')">Technologie</button>
+            <button class="category" onclick="navigateToPlayground('sports')">Sports</button>
         </div>
     </div>
 </div>
 
-<script>
-    // JavaScript
-    function navigateToPlayground(category) {
-        // Write your navigation logic here
-        console.log("Navigating to Playground with category: " + category);
-        // Example: window.location.href = "playground.html?category=" + category;
-    }
-</script>
+
+<script src="./src/script.js"></script>
 </body>
 </html>
 
