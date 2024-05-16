@@ -28,6 +28,31 @@
 
 
 /***** playground *****/
+#playgroundContainer {
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+#playgroundContainer h1, .questionContainer p {
+    text-align: center;
+}
+
+#questionsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+}
+
+#questionsContainer .optionsContainer {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
 button.option, button#submitButton{
     background-color: black;
     color: white;
@@ -38,8 +63,18 @@ button.option{
     padding: 10px 15px;
 }
 
+button#submitButton {
+    padding: 10px 30px;
+    display: flex;
+    margin: 60px auto 0 auto;
+}
+
 button.option.selected {
     background-color: #315AC1; /* Change la couleur de fond de l'option sélectionnée */
 }
 
+#resultsContainer {
+    text-align: center;
+    margin-top: 20px;
+}
 /***** fin playground *****/

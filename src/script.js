@@ -190,6 +190,15 @@ function loadQuestions() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
 
+    // Créer un élément de titre
+    const titleElement = document.createElement("h1");
+    titleElement.textContent = "Catégorie : " + category;
+
+    const displayTitle = document.getElementById("questionsContainer");
+
+    // Ajouter le titre avant #questionsContainer
+    displayTitle.before(titleElement);
+
     // Filtrer les questions en fonction de la catégorie et les rendre
     const filteredQuestions = data.filter(question => question.category === category);
     renderQuestions(filteredQuestions);
@@ -215,14 +224,21 @@ function renderQuestions(questions) {
         questionText.textContent = question.question;
         questionElement.appendChild(questionText);
 
+        // Créer une div pour les boutons d'options
+        const optionsContainer = document.createElement("div");
+        optionsContainer.classList.add("optionsContainer");
+
         // Ajouter les boutons d'options avec gestionnaire de clic
         for (let i = 1; i <= 4; i++) {
             const optionButton = document.createElement('button');
             optionButton.classList.add('option');
             optionButton.textContent = question['option' + i];
             optionButton.onclick = () => handleOptionSelect(optionButton);
-            questionElement.appendChild(optionButton);
+            optionsContainer.appendChild(optionButton);
         }
+
+        // Ajouter la div des options au conteneur de la question
+        questionElement.appendChild(optionsContainer);
 
         // Ajouter la question rendue au conteneur principal des questions
         questionsContainer.appendChild(questionElement);
