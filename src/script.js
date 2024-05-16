@@ -32,7 +32,7 @@ const data = [
         "option3": "Facebook",
         "option4": "LinkedIn",
         "correctOption": 3,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "medium"
     },
     {
@@ -62,7 +62,7 @@ const data = [
         "option3": "Nvidia",
         "option4": "Apple",
         "correctOption": 1,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "easy"
     },
     {
@@ -102,7 +102,7 @@ const data = [
         "option3": "Amazon",
         "option4": "CERN",
         "correctOption": 4,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "hard"
     },
     {
@@ -122,7 +122,7 @@ const data = [
         "option3": "Java",
         "option4": "Python",
         "correctOption": 2,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "hard"
     },
     {
@@ -142,7 +142,7 @@ const data = [
         "option3": "Hypermedia Text Markup Language",
         "option4": "Hypertext Transfer Markup Language",
         "correctOption": 2,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "medium"
     },
     {
@@ -172,7 +172,7 @@ const data = [
         "option3": "Compaq Portable",
         "option4": "Atari 800",
         "correctOption": 1,
-        "category": "technology",
+        "category": "technologie",
         "difficulty": "hard"
     },
     {
