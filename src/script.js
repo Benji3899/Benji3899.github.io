@@ -1,5 +1,13 @@
 window.onload = function() {
     loadQuestions();
+
+    // Récupérer le score du stockage local
+    const savedScore = localStorage.getItem('score');
+
+    // Si un score a été enregistré, l'afficher
+    if (savedScore) {
+        document.getElementById('lastScore').textContent = 'Votre dernier score était: ' + savedScore;
+    }
 };
 
 const data = [
@@ -280,4 +288,18 @@ function handleSubmit() {
     // Afficher le score dans le conteneur de résultats
     const resultsContainer = document.getElementById('resultsContainer');
     resultsContainer.textContent = 'Votre score est: ' + score + '/' + filteredQuestions.length;
+
+    // Montrer le bouton "Enregistrer le score"
+    document.getElementById('saveScoreButton').style.display = 'block';
+}
+
+function handleSaveScore() {
+    // Obtenir le texte complet du conteneur de résultats
+    const fullText = document.getElementById('resultsContainer').textContent;
+
+    // Extraire le score du texte complet
+    const score = fullText.split(': ')[1];
+
+    // Enregistrer le score dans le stockage local
+    localStorage.setItem('score', score);
 }

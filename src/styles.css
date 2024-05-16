@@ -2,6 +2,7 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+
 #quizAppContainer, #playgroundContainer {
     display: flex;
     justify-content: center;
@@ -10,6 +11,7 @@
     padding: 40px 0;
 }
 /***** fin global *****/
+
 
 /***** index *****/
 h2{
@@ -53,7 +55,7 @@ h2{
     justify-content: center;
 }
 
-button.option, button#submitButton{
+button.option, button#submitButton, button#saveScoreButton{
     background-color: black;
     color: white;
     border: none;
@@ -61,18 +63,18 @@ button.option, button#submitButton{
     cursor: pointer;
 }
 
-button.option:hover, button#submitButton:hover {
-    background-color: #315ac1;;
+button.option:hover, button#submitButton:hover, button#saveScoreButton:hover {
+    background-color: #315ac1;
 }
 
-button.option{
+button.option, button#saveScoreButton{
     padding: 10px 15px;
 }
 
 button#submitButton {
     padding: 10px 30px;
     display: flex;
-    margin: 60px auto 0 auto;
+    margin: 60px auto 10px auto;
 }
 
 button.option.selected {
@@ -82,5 +84,9 @@ button.option.selected {
 #resultsContainer {
     text-align: center;
     margin-top: 20px;
+}
+
+#saveScoreButton {
+    display: none;
 }
 /***** fin playground *****/
