@@ -1,20 +1,29 @@
-/***** index *****/
-#quizAppContainer {
+/***** Global *****/
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#quizAppContainer, #playgroundContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    padding: 40px 0;
+}
+/***** fin global *****/
+
+/***** index *****/
+h2{
+    margin: 100px 0 40px 0;
 }
 
 .categoryContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 45px;
 }
 
 
 .category {
-    margin: 10px;
     padding: 10px 20px;
     background-color: #315AC1;
     border-radius: 5px;
@@ -28,12 +37,6 @@
 
 
 /***** playground *****/
-#playgroundContainer {
-    width: 60%;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
 #playgroundContainer h1, .questionContainer p {
     text-align: center;
 }
@@ -41,9 +44,6 @@
 #questionsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     gap: 50px;
 }
 
@@ -57,6 +57,12 @@ button.option, button#submitButton{
     background-color: black;
     color: white;
     border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.option:hover, button#submitButton:hover {
+    background-color: #315ac1;;
 }
 
 button.option{
