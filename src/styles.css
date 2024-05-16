@@ -1,3 +1,4 @@
+/***** index *****/
 #quizAppContainer {
     display: flex;
     justify-content: center;
@@ -15,7 +16,7 @@
 .category {
     margin: 10px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #315AC1;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
@@ -23,7 +24,22 @@
     font-size: 18px;
     border: none;
 }
+/***** fin index *****/
 
-.option.selected {
-    background-color: lightblue; /* Change la couleur de fond de l'option sélectionnée */
+
+/***** playground *****/
+button.option, button#submitButton{
+    background-color: black;
+    color: white;
+    border: none;
 }
+
+button.option{
+    padding: 10px 15px;
+}
+
+button.option.selected {
+    background-color: #315AC1; /* Change la couleur de fond de l'option sélectionnée */
+}
+
+/***** fin playground *****/

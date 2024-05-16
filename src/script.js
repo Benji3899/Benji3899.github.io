@@ -230,14 +230,38 @@ function renderQuestions(questions) {
 }
 
 
+let userAnswers = []
 function handleOptionSelect(optionButton) {
     // Gérer la sélection d'une option en mettant à jour les styles
     const questionContainer = optionButton.closest('.questionContainer');
 
     // Supprimer la classe "selected" de tous les boutons d'options dans ce conteneur de question
     const optionButtons = questionContainer.querySelectorAll('.option');
-    optionButtons.forEach(button => button.classList.remove('selected'));
+    optionButtons.forEach((button, index) => {
+        button.classList.remove('selected');
+        // Si le bouton sélectionné est le bouton actuel, enregistrez la réponse de l'utilisateur
+        if (button === optionButton) {
+            userAnswers[Array.from(questionContainer.parentNode.children).indexOf(questionContainer)] = index + 1;
+        }
+    });
 
     // Ajouter la classe "selected" au bouton d'option sélectionné
     optionButton.classList.add('selected');
+}
+
+function handleSubmit() {
+    // Calculer le score en comparant les réponses de l'utilisateur avec les bonnes réponses
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const filteredQuestions = data.filter(question => question.category === category);
+    let score = 0;
+    userAnswers.forEach((answer, index) => {
+        if (answer === filteredQuestions[index].correctOption) {
+            score++;
+        }
+    });
+
+    // Afficher le score dans le conteneur de résultats
+    const resultsContainer = document.getElementById('resultsContainer');
+    resultsContainer.textContent = 'Votre score est: ' + score + '/' + filteredQuestions.length;
 }
