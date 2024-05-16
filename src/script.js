@@ -231,6 +231,9 @@ function renderQuestions(questions) {
         const questionElement = document.createElement('div');
         questionElement.classList.add('questionContainer');
 
+        // Donner à chaque question un identifiant unique basé sur son index
+        questionElement.id = 'question' + index;
+
         // Ajouter le texte de la question
         const questionText = document.createElement('p');
         questionText.textContent = question.question;
@@ -242,9 +245,13 @@ function renderQuestions(questions) {
 
         // Ajouter les boutons d'options avec gestionnaire de clic
         for (let i = 1; i <= 4; i++) {
-            const optionButton = document.createElement('button');
-            optionButton.classList.add('option');
-            optionButton.textContent = question['option' + i];
+            const optionButton = document.createElement("button");
+            optionButton.classList.add("option");
+
+            // Donner à chaque bouton d'option une classe unique basée sur son index
+            optionButton.classList.add('option' + i);
+
+            optionButton.textContent = question["option" + i];
             optionButton.onclick = () => handleOptionSelect(optionButton);
             optionsContainer.appendChild(optionButton);
         }
@@ -286,6 +293,12 @@ function handleSubmit() {
     userAnswers.forEach((answer, index) => {
         if (answer === filteredQuestions[index].correctOption) {
             score++;
+
+            // Récupérer le bouton d'option pour cette question
+            const optionButton = document.querySelector(`#question${index} .option${answer}`);
+
+            // Changer la couleur du bouton en vert
+            optionButton.style.backgroundColor = 'green';
         }
     });
 
