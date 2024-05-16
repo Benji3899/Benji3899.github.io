@@ -1,12 +1,16 @@
 window.onload = function() {
     loadQuestions();
 
-    // Récupérer le score du stockage local
-    const savedScore = localStorage.getItem('score');
+    // Obtenir la catégorie de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
 
-    // Si un score a été enregistré, l'afficher
+    // Récupérer le score du stockage local en utilisant la catégorie comme clé
+    const savedScore = localStorage.getItem(category);
+
+    // Si un score a été enregistré pour cette catégorie, l'afficher
     if (savedScore) {
-        document.getElementById('lastScore').textContent = 'Votre dernier score était: ' + savedScore;
+        document.getElementById('lastScore').textContent = 'Votre dernier score est de : ' + savedScore;
     }
 };
 
@@ -294,12 +298,15 @@ function handleSubmit() {
 }
 
 function handleSaveScore() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
     // Obtenir le texte complet du conteneur de résultats
     const fullText = document.getElementById('resultsContainer').textContent;
 
-    // Extraire le score du texte complet
+    // Extraire le score du texte complet : divise en 2 parties au niveau de ': '
     const score = fullText.split(': ')[1];
 
     // Enregistrer le score dans le stockage local
-    localStorage.setItem('score', score);
+    localStorage.setItem(category, score);
 }
